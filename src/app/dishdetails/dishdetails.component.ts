@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { MenuComponent } from '../menu/menu.component'
+import { Component, OnInit, Input } from '@angular/core';
+import { Dish } from '../shared/dish';
+//import { DISHES } from '../shared/dishes';
+
 
 @Component({
   selector: 'app-dishdetails',
@@ -8,8 +10,13 @@ import { MenuComponent } from '../menu/menu.component'
 })
 export class DishdetailsComponent implements OnInit {
 
-  constructor() { 
+  @Input()
+  dish:Dish;
 
+  //selectedDish:Dish = DISHES[0];
+
+  constructor() { 
+    
   }
 
   ngOnInit() {

@@ -9,12 +9,30 @@
 
   <div fxFlex>
     <md-grid-list cols="2" rowsHeight="200px">
-      <md-grid-tile *ngFor="let dish of dishes">
+      <md-grid-tile *ngFor="let dish of dishes" (click)="onSelect(dish)">
         <img height="200px" md-list-avatar src={{dish.image}} alt={{dish.name}}>
         <md-grid-tile-footer>
           <h1 md-line> {{dish.name | uppercase}} </h1>
         </md-grid-tile-footer>
       </md-grid-tile>
+
+      <md-grid-tile *ngIf="selectedDish">
+        <app-dishdetails [dish]="selectedDish"></app-dishdetails>
+      </md-grid-tile>
+
+      <md-grid-tile *ngIf="selectedDish">
+        <md-list>
+          <h3>Comments</h3>
+          <md-list-item *ngFor="let comment of selectedDish.comments">
+            <h4 md-line> {{comment.comment}} </h4>
+            <p md-line> Star : {{comment.rating}}</p>
+            <p md-line> Author : {{comment.author}}</p>
+            <p md-line> {{comment.date | date }}</p>
+          </md-list-item>
+        </md-list>
+
+      </md-grid-tile>
+
     </md-grid-list>
   </div>
 

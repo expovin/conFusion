@@ -1,23 +1,16 @@
+
 <div class="container" fxLayout="column" fxLayoutGap="10px">
-
-  <div fxFlex>
-    <div>
-      <h3>Dish Details</h3>
-      <hr>
-    </div>
-  </div>
-
-  <div fxFlex *ngIf="selectedDish">
+  <div fxFlex *ngIf="dish">
     <md-card>
       <md-card-header>
         <md-card-title>
-          <h3>{{ selectedDish.name | uppercase}}</h3>
+          <h3>{{ dish.name | uppercase}}</h3>
         </md-card-title>
       </md-card-header>
-      <img md-card-image src="{{selectedDish.image}}" alt="{{selectedDish.name}}">
+      <img height="200px" md-list-avatar src="{{dish.image}}" alt="{{dish.name}}">
       <md-card-content>
         <p>
-          {{ selectedDish.description }}
+          {{ dish.description }}
         </p>
       </md-card-content>
       <md-card-actions>
